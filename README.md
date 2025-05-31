@@ -29,8 +29,8 @@ tasket list
 # Complete a task
 tasket done 2
 
-# Filter by context/project/priority
-tasket list --project golang
+# Filter by category/priority
+tasket list --category golang
 tasket list --priority high
 ```
 
