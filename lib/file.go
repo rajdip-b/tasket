@@ -7,8 +7,17 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
+func getUserHomeDir() string {
+	userHomeDir, err := os.UserHomeDir()
+	if err != nil {
+		panic(err)
+	}
+	return userHomeDir
+}
+
 func getTodosFilePath() string {
-	return filepath.Join("~", ".tasket", "todos.toml")
+	userHomeDir := getUserHomeDir()
+	return filepath.Join(userHomeDir, ".tasket", "todos.toml")
 }
 
 func createTodosFile() {
@@ -16,7 +25,7 @@ func createTodosFile() {
 	var err error
 
 	// Create the .tasket directory if it doesn't exist
-	err = os.MkdirAll("~/.tasket", 0755)
+	err = os.MkdirAll(getUserHomeDir() + "/.tasket", 0755)
 	if err != nil {
 		panic(err)
 	}
