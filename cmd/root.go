@@ -15,9 +15,14 @@ var RootCmd = &cobra.Command{
 	Version: "0.1.0",	
 }
   
-  func Execute() {
+func Execute() {
 	if err := RootCmd.Execute(); err != nil {
 	  fmt.Println(err)
 	  os.Exit(1)
 	}
+}
+
+func init() {
+	RootCmd.AddCommand(AddCmd)
+	RootCmd.AddCommand(ListCmd)
 }

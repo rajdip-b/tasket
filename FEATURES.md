@@ -8,7 +8,7 @@ A growing list of features supported by `tasket`.
 
 - [ ] **Parse and read todos** in [todo.txt](https://github.com/todotxt/todo.txt) format
 - [x] **Add a todo**
-- [ ] **List all todos**
+- [x] **List all todos**
 - [ ] **Delete a todo**
 - [ ] **Mark a todo as done**
 - [ ] **Reset all todos**
@@ -21,12 +21,12 @@ A growing list of features supported by `tasket`.
 
 ## 🔎 Filtering & Search
 
-- [ ] **Filter todos based on:**
-  - [ ] Priority
-  - [ ] Name/Keyword
-  - [ ] Status (done/undone/in-progress)
-  - [ ] Category
-- [ ] **Search tasks** by keyword
+- [x] **Filter todos based on:**
+  - [x] Priority
+  - [x] Name/Keyword
+  - [x] Status (done/undone/in-progress)
+  - [x] Category
+- [x] **Search tasks** by keyword
 
 ---
 

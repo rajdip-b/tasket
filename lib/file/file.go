@@ -1,8 +1,9 @@
-package lib
+package file
 
 import (
 	"os"
 	"path/filepath"
+	"raj/tasket/lib/todo"
 
 	"github.com/BurntSushi/toml"
 )
@@ -44,12 +45,12 @@ func todosFileExists() bool {
 	return true
 }
 
-func LoadTodos() TodoList {
+func LoadTodos() todo.TodoList {
 	if !todosFileExists() {
 		createTodosFile()
 	}
 
-	var todoList TodoList
+	var todoList todo.TodoList
 
 	_, err := toml.DecodeFile(getTodosFilePath(), &todoList)
 	if err != nil {
@@ -59,7 +60,7 @@ func LoadTodos() TodoList {
 	return todoList
 }
 
-func WriteTodos(todoList TodoList) {
+func WriteTodos(todoList todo.TodoList) {
 	f, _ := os.OpenFile(getTodosFilePath(), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
 	defer f.Close()
 

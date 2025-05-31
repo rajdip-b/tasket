@@ -3,8 +3,10 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"raj/tasket/lib"
+	"raj/tasket/lib/file"
+	"raj/tasket/lib/todo"
 	"strings"
+	"time"
 
 	"github.com/spf13/cobra"
 )
@@ -24,8 +26,19 @@ var AddCmd = &cobra.Command{
 		priority, priorityDirectivePosition := extractPriority(fullTaskString)
 		task := extractTask(fullTaskString, categoryDirectivePosition, priorityDirectivePosition)
 
-		todo := lib.AddTodo(task, category, priority)
-		fmt.Println("Task Added: " + todo.String())
+		todo := todo.Todo{
+			Task:     task,
+			Category:  category,
+			Status:   todo.StatusPending,
+			Priority: priority,
+			AddedOn:  time.Now(),
+			DueOn:    time.Now(),
+		}
+	
+		todos := file.LoadTodos()
+		todos.Todos = append(todos.Todos, todo)
+		file.WriteTodos(todos)
+		fmt.Println("Task Added: " + todo.String(true))
 	},
 }
 
@@ -68,7 +81,7 @@ func extractCategory(fullTaskString string) (string, int) {
 	return category, categoryDirectivePosition
 }
 
-func extractPriority(fullTaskString string) (lib.TodoPriority, int) {
+func extractPriority(fullTaskString string) (todo.TodoPriority, int) {
 	var priority string = "low"
 	priorityDirectivePosition := strings.LastIndex(fullTaskString, "@")
 
@@ -83,15 +96,15 @@ func extractPriority(fullTaskString string) (lib.TodoPriority, int) {
 		priority = priorityString
 	}
 
-	var priorityEnum lib.TodoPriority
+	var priorityEnum todo.TodoPriority
 
 	switch priority {
 	case "low":
-		priorityEnum = lib.PriorityLow
+		priorityEnum = todo.PriorityLow
 	case "medium":
-		priorityEnum = lib.PriorityMedium
+		priorityEnum = todo.PriorityMedium
 	case "high":
-		priorityEnum = lib.PriorityHigh
+		priorityEnum = todo.PriorityHigh
 	}
 
 	return priorityEnum, priorityDirectivePosition

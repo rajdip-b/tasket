@@ -3,6 +3,8 @@
 ### Major Changes
 
 - Added `tasket add` command
+- Add `tasket list` command
+- Add filtering by category, priority, status, and task name
 
 ### Patches
 
