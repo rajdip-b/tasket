@@ -38,7 +38,7 @@ var AddCmd = &cobra.Command{
 		todos := file.LoadTodos()
 		todos.Todos = append(todos.Todos, todo)
 		file.WriteTodos(todos)
-		fmt.Println("Task Added: " + todo.String(true))
+		fmt.Println("✅ Task Added: " + todo.Task)
 	},
 }
 

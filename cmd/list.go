@@ -51,14 +51,16 @@ var ListCmd = &cobra.Command{
 		}
 
 		var lastDisplayedTodos todo.TodoList
-		index := 0
+		index := 1
 		for category, todos := range categoryBasedTodos {
-			fmt.Println("Category: " + category)
+			fmt.Printf("\n\033[1mCategory: %s\033[0m\n", category)
+			fmt.Println("----------------------------------------------------------")
 			for _, todo := range todos {
 				lastDisplayedTodos.Todos = append(lastDisplayedTodos.Todos, todo)
-				fmt.Println("\t" + fmt.Sprint(index+1) + ". " + todo.String(false))
+				fmt.Println(todo.String(index))
 				index++
 			}
+			fmt.Println("----------------------------------------------------------")
 		}
 
 		file.WriteLastDisplayedTodos(lastDisplayedTodos)

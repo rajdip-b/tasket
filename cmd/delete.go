@@ -53,6 +53,6 @@ var DeleteCmd = &cobra.Command{
 
 		file.WriteTodos(todos)
 		
-		fmt.Println("Todo deleted")
+		fmt.Println("✅ Todo deleted")
 	},
 }

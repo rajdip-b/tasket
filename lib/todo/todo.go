@@ -20,6 +20,20 @@ var priorityName = map[TodoPriority]string{
 	PriorityHigh:   "high",
 }
 
+func StatusSymbol(status TodoStatus) string {
+    switch status {
+    case StatusPending:
+        return "⏳" // Hourglass for Todo
+    case StatusInProgress:
+        return "🚧" // Construction for In Progress
+    case StatusDone:
+        return "✅" // Checkmark for Done
+    default:
+        return "❓"
+    }
+}
+
+
 func (priority TodoPriority) String() string {
 	return priorityName[priority]
 }
@@ -53,14 +67,17 @@ type TodoList struct {
 	Todos []Todo `toml:"todos"`
 }
 
-func (todo Todo) String(showCategory bool) string {
-	if showCategory {
-		return fmt.Sprintf("%s (%s)\t[%s]", todo.Task, todo.Category, todo.Priority)
-	} else {
-		return fmt.Sprintf("%s\t[%s]", todo.Task, todo.Priority)
-	}
-}
-
 func (todo Todo) Equals(other Todo) bool {
 	return (todo.Task == other.Task && todo.Category == other.Category && todo.Status == other.Status && todo.Priority == other.Priority && todo.AddedOn == other.AddedOn && todo.DueOn == other.DueOn)
+}
+
+func (t Todo) String(number int) string {
+    // Example:  1. [🚧 inprogress]  learn go         [low]   due: 2025-05-30
+    return fmt.Sprintf("%2d. [%s %-11s] %-25s [%-4s] due: %s",
+        number,
+        StatusSymbol(TodoStatus(t.Status)), t.Status,
+        t.Task,
+        t.Priority,
+        t.DueOn.Format("2006-01-02"),
+    )
 }

@@ -42,7 +42,7 @@ A growing list of features supported by `tasket`.
 
 ## ⚡ Advanced Features
 
-- [ ] **Colored and readable CLI output**
+- [x] **Colored and readable CLI output**
 - [ ] **Customizable output formatting**
 - [ ] **Dry-run mode for bulk actions**
 - [ ] **Reminders/notifications for todos**
