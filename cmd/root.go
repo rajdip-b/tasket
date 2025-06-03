@@ -8,17 +8,17 @@ import (
 )
 
 var RootCmd = &cobra.Command{
-	Use:   "tasket",
-	Short: "Tasket",
-	Long: `Tasket is a Golang based Todo App to keep track of your tasks`,
+	Use:     "tasket",
+	Short:   "Tasket",
+	Long:    `Tasket is a Golang based Todo App to keep track of your tasks`,
 	Aliases: []string{"tasket"},
-	Version: "0.1.0",	
+	Version: "0.1.0",
 }
-  
+
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {
-	  fmt.Println(err)
-	  os.Exit(1)
+		fmt.Println(err)
+		os.Exit(1)
 	}
 }
 

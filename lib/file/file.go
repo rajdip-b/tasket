@@ -26,7 +26,7 @@ func createTodosFile() {
 	var err error
 
 	// Create the .tasket directory if it doesn't exist
-	err = os.MkdirAll(getUserHomeDir() + "/.tasket", 0755)
+	err = os.MkdirAll(getUserHomeDir()+"/.tasket", 0755)
 	if err != nil {
 		panic(err)
 	}

@@ -12,7 +12,7 @@ import (
 )
 
 var AddCmd = &cobra.Command{
-	Use: "add [item to add]",
+	Use:   "add [item to add]",
 	Short: "Adds an item to the todo list",
 	Example: `
 	tasket add "Read Go documentation +golang @high"
@@ -28,13 +28,13 @@ var AddCmd = &cobra.Command{
 
 		todo := todo.Todo{
 			Task:     task,
-			Category:  category,
+			Category: category,
 			Status:   todo.StatusPending,
 			Priority: priority,
 			AddedOn:  time.Now(),
 			DueOn:    time.Now(),
 		}
-	
+
 		todos := file.LoadTodos()
 		todos.Todos = append(todos.Todos, todo)
 		file.WriteTodos(todos)

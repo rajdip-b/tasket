@@ -14,10 +14,10 @@ const (
 	PriorityHigh   TodoPriority = "high"
 )
 
-var priorityName = map[TodoPriority]string {
-	PriorityLow    : "low",
-	PriorityMedium : "medium",
-	PriorityHigh   : "high",
+var priorityName = map[TodoPriority]string{
+	PriorityLow:    "low",
+	PriorityMedium: "medium",
+	PriorityHigh:   "high",
 }
 
 func (priority TodoPriority) String() string {
@@ -30,10 +30,10 @@ const (
 	StatusDone       TodoStatus = "done"
 )
 
-var statusName = map[TodoStatus]string {
-	StatusPending    : "pending",
-	StatusInProgress : "in-progress",
-	StatusDone       : "done",
+var statusName = map[TodoStatus]string{
+	StatusPending:    "pending",
+	StatusInProgress: "in-progress",
+	StatusDone:       "done",
 }
 
 func (status TodoStatus) String() string {
@@ -42,7 +42,7 @@ func (status TodoStatus) String() string {
 
 type Todo struct {
 	Task     string       `toml:"task"`
-	Category  string       `toml:"category"`
+	Category string       `toml:"category"`
 	Status   TodoStatus   `toml:"status"`
 	Priority TodoPriority `toml:"priority"`
 	AddedOn  time.Time    `toml:"added_on"`
@@ -56,7 +56,7 @@ type TodoList struct {
 func (todo Todo) String(showCategory bool) string {
 	if showCategory {
 		return fmt.Sprintf("%s (%s)\t[%s]", todo.Task, todo.Category, todo.Priority)
-	} else { 
+	} else {
 		return fmt.Sprintf("%s\t[%s]", todo.Task, todo.Priority)
 	}
 }

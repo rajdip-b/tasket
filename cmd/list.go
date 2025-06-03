@@ -10,7 +10,7 @@ import (
 )
 
 var ListCmd = &cobra.Command{
-	Use: "list",
+	Use:   "list",
 	Short: "Lists all the todos",
 	Example: `
 	tasket list"
@@ -23,9 +23,9 @@ var ListCmd = &cobra.Command{
 		filter, _ := cmd.Flags().GetString("filter")
 		status, _ := cmd.Flags().GetString("status")
 
-		categoryBasedTodos := make(map[string][] todo.Todo)
+		categoryBasedTodos := make(map[string][]todo.Todo)
 
-	    allTodos := file.LoadTodos()
+		allTodos := file.LoadTodos()
 		for _, todo := range allTodos.Todos {
 			// Filter by categody
 			if category != "" && category != todo.Category {
