@@ -6,10 +6,9 @@ A growing list of features supported by `tasket`.
 
 ## ✅ Core Features
 
-- [ ] **Parse and read todos** in [todo.txt](https://github.com/todotxt/todo.txt) format
 - [x] **Add a todo**
 - [x] **List all todos**
-- [ ] **Delete a todo**
+- [x] **Delete a todo**
 - [ ] **Mark a todo as done**
 - [ ] **Reset all todos**
 - [ ] **Edit tasks** in place

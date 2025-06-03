@@ -60,3 +60,7 @@ func (todo Todo) String(showCategory bool) string {
 		return fmt.Sprintf("%s\t[%s]", todo.Task, todo.Priority)
 	}
 }
+
+func (todo Todo) Equals(other Todo) bool {
+	return (todo.Task == other.Task && todo.Category == other.Category && todo.Status == other.Status && todo.Priority == other.Priority && todo.AddedOn == other.AddedOn && todo.DueOn == other.DueOn)
+}

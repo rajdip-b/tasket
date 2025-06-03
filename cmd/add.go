@@ -48,9 +48,9 @@ func extractTask(fullTaskString string, categoryDirectivePosition int, priorityD
 	if categoryDirectivePosition == -1 && priorityDirectivePosition == -1 {
 		task = fullTaskString
 	} else if priorityDirectivePosition == -1 {
-		task = fullTaskString[:priorityDirectivePosition]
-	} else if categoryDirectivePosition == -1 {
 		task = fullTaskString[:categoryDirectivePosition]
+	} else if categoryDirectivePosition == -1 {
+		task = fullTaskString[:priorityDirectivePosition]
 	} else {
 		min := min(categoryDirectivePosition, priorityDirectivePosition)
 		task = fullTaskString[:min]
