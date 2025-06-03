@@ -9,11 +9,11 @@ A growing list of features supported by `tasket`.
 - [x] **Add a todo**
 - [x] **List all todos**
 - [x] **Delete a todo**
-- [ ] **Mark a todo as done**
+- [x] **Mark a todo as done**
+- [x] **Mark a todo as in-progress**
 - [ ] **Reset all todos**
 - [ ] **Edit tasks** in place
 - [ ] **Bulk operations** (mark multiple tasks done, delete, etc.)
-- [ ] **Quick archive of completed tasks**
 - [ ] **Undo/redo last action**
 
 ---

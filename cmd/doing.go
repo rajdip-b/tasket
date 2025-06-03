@@ -9,11 +9,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var DoneCmd = &cobra.Command{
-	Use:   "done",
-	Short: "Mark a todo as done",
+var DoingCmd = &cobra.Command{
+	Use:   "doing",
+	Short: "Mark a todo as in progress",
 	Example: `
-	tasket done 1
+	tasket doing 1
 	`,
 	Args: cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
@@ -44,13 +44,13 @@ var DoneCmd = &cobra.Command{
 		todos := file.LoadTodos()
 		for i, t := range todos.Todos {
 			if t.Equals(todoToDelete) {
-				todos.Todos[i].Status = todo.StatusDone
+				todos.Todos[i].Status = todo.StatusInProgress
 				break
 			}
 		}
 
 		file.WriteTodos(todos)
 		
-		fmt.Println("✅ Todo marked as done")
+		fmt.Println("✅ Todo marked as in progress")
 	},
 }

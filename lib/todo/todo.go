@@ -72,7 +72,6 @@ func (todo Todo) Equals(other Todo) bool {
 }
 
 func (t Todo) String(number int) string {
-    // Example:  1. [🚧 inprogress]  learn go         [low]   due: 2025-05-30
     return fmt.Sprintf("%2d. [%s %-11s] %-25s [%-4s] due: %s",
         number,
         StatusSymbol(TodoStatus(t.Status)), t.Status,
